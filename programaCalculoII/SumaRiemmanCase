@@ -1,0 +1,136 @@
+#include <math.h>
+#include <stdio.h>
+#define e 2.71828
+int main(int argc, const char * argv[]) {
+    
+    // insert code here...
+    
+    float im, xi;
+    int sumasRiemman;
+    
+    printf("Menu\n");
+    printf("Dijite que suma de riemman desea hacer\n");
+    printf("1.-Lineal de la forma f(x)=x \n");
+    printf("2.-Racional de la forma f(x)=1/x \n");
+    printf("3.-Raíz de la forma f(x)=√x \n");
+    printf("4.-Exponencial de la forma f(x)= e^x \n");
+    
+    printf("Teclee el numero que va antes de la oración \n");
+    scanf("%i", &sumasRiemman);
+    
+    
+    switch (sumasRiemman){
+        case 1:
+            
+                        
+            im = xi;
+            
+            float a, b, n, x, f, Dltx, phi, sum;
+
+            sum = 0;
+
+            printf("Digite el limite inferior:");
+            scanf("%f",&a);
+            printf("Digite el limite superior:");
+            scanf("%f",&b);
+            printf("Digite el numero de subintervalos:");
+            scanf("%f",&n);
+
+            Dltx = (b-a)/n; //calculamos delta x
+
+            for(int i = 1; i <= n; i++){ //sumatoria
+               xi = a + Dltx * i; //calculo de x
+               f = xi; //el valor de x se le manda a nuestra funcion
+               phi = f * Dltx; //multiplicacion del valor arrojado por la funcion por Dltx por def. de sumas de reimann
+               sum += phi; //acumulamos los resultados previos
+            }
+            
+            printf("El resultado aproximado es:%.4f \n",sum);
+            
+            break;
+            
+        case 2:
+            im = 1/x;
+            
+            sum = 0;
+
+            printf("Digite el limite inferior:");
+            scanf("%f",&a);
+            printf("Digite el limite superior:");
+            scanf("%f",&b);
+            printf("Digite el numero de subintervalos:");
+            scanf("%f",&n);
+
+            Dltx = (b-a)/n; //calculamos delta x
+
+            for(int i = 1; i <= n; i++){ //sumatoria
+               x = a + Dltx * i; //calculo de x
+               f = 1/x; //el valor de x se le manda a nuestra funcion
+               phi = f * Dltx; //multiplicacion del valor arrojado por la funcion por Dltx por def. de sumas de reimann
+               sum += phi; //acumulamos los resultados previos
+            }
+            printf("El resultado aproximado es:%.4f \n",sum);
+
+            break;
+            
+        case 3:
+            im = 1/x;
+            
+            sum = 0;
+
+            printf("Digite el limite inferior:");
+            scanf("%f",&a);
+            printf("Digite el limite superior:");
+            scanf("%f",&b);
+            printf("Digite el numero de subintervalos:");
+            scanf("%f",&n);
+
+            Dltx = (b-a)/n; //calculamos delta x
+
+            for(int i = 1; i <= n; i++){ //sumatoria
+               x = a + Dltx * i; //calculo de x
+               f = powf(x, 1/2); //el valor de x se le manda a nuestra funcion
+               phi = f * Dltx; //multiplicacion del valor arrojado por la funcion por Dltx por def. de sumas de reimann
+               sum += phi; //acumulamos los resultados previos
+            }
+            printf("El resultado aproximado es:%.4f \n",sum);
+
+            break;
+            
+        case 4:
+            im = pow(e, xi);
+            
+            sum = 0;
+
+            printf("Digite el limite inferior:");
+            scanf("%f",&a);
+            printf("Digite el limite superior:");
+            scanf("%f",&b);
+            printf("Digite el numero de subintervalos:");
+            scanf("%f",&n);
+
+            Dltx = (b-a)/n; //calculamos delta x
+
+            for(int i = 1; i <= n; i++){ //sumatoria
+               x = a + Dltx * i; //calculo de x
+               f = powf(e, xi); //el valor de x se le manda a nuestra funcion
+               phi = f * Dltx; //multiplicacion del valor arrojado por la funcion por Dltx por def. de sumas de reimann
+               sum += phi; //acumulamos los resultados previos
+            }
+            printf("El resultado aproximado es:%.4f \n",sum);
+
+            break;
+            
+            
+        default:
+            break;
+    }
+    
+    
+
+
+
+    
+    
+    return 0;
+}
