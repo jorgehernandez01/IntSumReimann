@@ -1,46 +1,40 @@
 #include <stdio.h>
 #include <math.h>
 
-float funcionR(float x){
+float funcionR(float x){ //funcion racional
     float im;
 
     im = 1/x;
 
-    return im;
+    return im; // devuelve la imagen de la funcion
 }
 
 float sumaReimann(){
-    int i, n;
-    float x, f, b, a, acum, Dltx;
+     float a, b, n, x, f, Dltx, phi, sum;
 
-    i = 1;
-    acum = 0;
+     sum = 0;
 
-    printf("Digite el intervalo 'a':");
-    scanf("%f",&a);
-    printf("Digite el intervalo 'b':");
-    scanf("%f",&b);
-    printf("Digite el numero de subintervalos:");
-    scanf("%d",&n);
+     printf("Digite el limite inferior:");
+     scanf("%f",&a);
+     printf("Digite el limite superior:");
+     scanf("%f",&b);
+     printf("Digite el numero de subintervalos:");
+     scanf("%f",&n);
 
-    Dltx = (b - a) / n; //calculo de 'Delta x'
+     Dltx = (b-a)/n; //calculamos delta x
 
-    while(i <= n){
-        x = (Dltx*i*a);
-        f = funcionR(x);
+     for(int i = 1; i <= n; i++){ //sumatoria
+        x = a + Dltx * i; //calculo de x
+        f = fabs(funcionR(x)); //el valor de x se le manda a nuestra funcion
+        phi = f * Dltx; //multiplicacion del valor arrojado por la funcion por Dltx por def. de sumas de reimann
+        sum += phi; //acumulamos los resultados previos
+     }
 
-        acum = acum + (f);
-
-        i++;
-    }
-
-    acum = acum * Dltx;
-
-    return acum;
+     return sum;
 }
 
 int main(){
     float resultado = sumaReimann();
 
-    printf("El resultado aproximado es:%0.2f",resultado); //el resultado no es el esperado :(
+    printf("El resultado aproximado es:%f",resultado); //impresion del resultado
 }
