@@ -1,0 +1,13 @@
+from sympy import *
+from sympy.parsing.sympy_parser import parse_expr # Leer función introducida
+
+
+f = input('ingrese la funcion f')
+x = symbols('x')
+
+x0 = input('Ingrese el limite inferior a=')
+x1 = input('Ingrese el limite inferior a=')
+
+res2 = integrate(f,(x, x0, x1))
+
+print(f'la respuesta es {res2}')
